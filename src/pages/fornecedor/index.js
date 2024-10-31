@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 import { style } from "./styles";
 
-export default function Inicio() {
+export default function fornecedor() {
 
-    const [produto, setProduto] = useState ('');
-    const [categoria, setCategoria] = useState ('');
-    const [subcateg, setSubcateg] = useState ('');
-    const [preco, setPreco] = useState ('');
-    const [descricao, setDescricao] = useState ('');
+    const [empresa, setEmpresa] = useState ('');
+    const [representante, setRepresentante] = useState ('');
+    const [cnpj, setCnpj] = useState ('');
+    const [cep, setCep] = useState ('');
+    const [fone, setFone] = useState ('');
     const [loading, setLoading] = useState (false);
 
     async function getLogin () {
@@ -45,33 +45,33 @@ export default function Inicio() {
                 <Text style = {style.nomeEstilo}>Registro de produtos</Text>
             </View>
             <View style = {style.boxProduto}>
-                <TextInput style = {style.textInput} placeholder="Produto"
-                    value = {produto}
-                    onChangeText={setProduto}
+                <TextInput style = {style.textInput} placeholder="Nome da Empresa"
+                    value = {empresa}
+                    onChangeText={setEmpresa}
                 />
             </View>
             <View style = {style.boxCategoria}>
-                <TextInput style = {style.textInput} placeholder="Categoria"
-                    value = {categoria}
-                    onChangeText={setCategoria}
+                <TextInput style = {style.textInput} placeholder="Nome do Representante"
+                    value = {representante}
+                    onChangeText={setRepresentante}
                 />
             </View>
             <View style = {style.boxSubCateg}>
-                <TextInput style = {style.textInput} placeholder="Sub-Categoria" 
-                    value = {subcateg}
-                    onChangeText={setSubcateg}
+                <TextInput style = {style.textInput} placeholder="CNPJ" 
+                    value = {cnpj}
+                    onChangeText={setCnpj}
                 />
             </View>
             <View style = {style.boxPreco}>
-                <TextInput style = {style.textInput} placeholder="Preço" 
-                    value={preco}
-                    onChangeText={setPreco}
+                <TextInput style = {style.textInput} placeholder="CEP" 
+                    value={cep}
+                    onChangeText={setCep}
                 />    
             </View>
             <View style ={style.boxDescricao}>
-                <TextInput style = {style.textInputDescricao} placeholder="Descrição" 
-                    value={descricao}
-                    onChangeText={setDescricao}
+                <TextInput style = {style.textInputDescricao} placeholder="Telefone" 
+                    value={fone}
+                    onChangeText={setFone}
                 />    
             </View>
             <View style = {style.button}>

@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet, TextInput } from "react-native";
+import { Button, Dimensions, StyleSheet, TextInput } from "react-native";
 
 
 
@@ -9,14 +9,14 @@ export const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: '100%',
-        borderWidth: 1,
-        borderColor: 'black',
+        gap: 2,
+        
     },
     nome: {
-        height: Dimensions.get('window').height/8,
+        height: Dimensions.get('window').height/10,
     },
     nomeEstilo: {
-        fontSize: 17,
+        fontSize: 18,
         fontWeight: 'bold',
     },
     textInput: {
@@ -29,6 +29,7 @@ export const style = StyleSheet.create({
         backgroundColor: 'white',
         marginVertical: 10,
         fontSize: 13,
+        padding: 18,
     },
     textInputDescricao: {
         borderColor: 'grey',
@@ -40,33 +41,29 @@ export const style = StyleSheet.create({
         backgroundColor: 'white',
         marginVertical: 10,
         fontSize: 13,
+        padding: 20
     },
     boxProduto: {
-        height: Dimensions.get('window').height/18,
         width: '100%',
         paddingLeft: 55,
         paddingRight: 55,
     },
     boxCategoria: {
-        height: Dimensions.get('window').height/18,
         width: '100%',
         paddingLeft: 55,
         paddingRight: 55,
     },
     boxSubCateg: {
-        height: Dimensions.get('window').height/18,
         width: '100%',
         paddingLeft: 55,
         paddingRight: 55,
     },
     boxPreco: {
-        height: Dimensions.get('window').height/18,
         width: '100%',
         paddingLeft: 55,
         paddingRight: 55,
     },
     boxDescricao: {
-        height: Dimensions.get('window').height/18,
         width: '100%',
         paddingLeft: 55,
         paddingRight: 55,
@@ -103,21 +100,22 @@ export const style = StyleSheet.create({
         marginTop: 30,
     },
     buttonText: {
-        height: Dimensions.get('window').height/18,
-        width: '100%',
-        color: 'red',
+        color: 'white',
         textAlign: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        paddingRight: 100,
+        marginHorizontal: 40,
+        marginTop: 35,
+        borderWidth: 1,
+        gap: 15,
+        padding: 9,
+        borderRadius: 8,
+        backgroundColor: '#7289FF',
+        overflow: 'hidden',
     },
-    buttonTextCancel: {
-        height: Dimensions.get('window').height/18,
-        width: '100%',
-        color: 'red',
+    button: {
         textAlign: 'center',
         justifyContent: 'center',
         flexDirection: 'row',
-        paddingRight: 250,
     },
 })
