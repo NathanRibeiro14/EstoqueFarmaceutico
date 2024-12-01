@@ -3,6 +3,7 @@ import { style } from "./styles";
 import { TextInput } from "react-native-gesture-handler";
 import React, { useState } from "react";
 import { ActivityIndicator } from 'react-native';
+import { CheckBox } from 'react-native-elements';
 
 
 import { useNavigation } from '@react-navigation/native';
@@ -13,11 +14,11 @@ export default function Venda() {
     const navigation = useNavigation();
     
     const [nomeproduto, setNomeproduto] = useState ('');
-    const [categoria, setCategoria] = useState ('');
-    const [subcateg, setSubcateg] = useState ('');
-    const [preco, setPreco] = useState ('');
-    const [descricao, setDescricao] = useState ('');
+    const [quantidade, setQuantidade] = useState ('');
+    const [nomecli, setNomecli] = useState ('');
+    const [datavenda, setDatavenda] = useState ('');
     const [loading, setLoading] = useState (false);
+    const [status, setStatus] = useState('Concluida');
 
 
     async function getLogin () {
@@ -54,29 +55,72 @@ export default function Venda() {
             </View>
 
         <View style = {style.boxCategoria}>
-            <TextInput style = {style.textInput} placeholder="Categoria"
-                value = {categoria}
-                onChangeText={setCategoria}
+            <TextInput style = {style.textInput} placeholder="Quantidade"
+                value = {quantidade}
+                onChangeText={setQuantidade}
             />
         </View>
         <View style = {style.boxSubCateg}>
-            <TextInput style = {style.textInput} placeholder="Sub-Categoria" 
-                value = {subcateg}
-                onChangeText={setSubcateg}
+            <TextInput style = {style.textInput} placeholder="Nome do Cliente" 
+                value = {nomecli}
+                onChangeText={setNomecli}
             />
         </View>
         <View style = {style.boxPreco}>
-            <TextInput style = {style.textInput} placeholder="Preço" 
-                value={preco}
-                onChangeText={setPreco}
+            <TextInput style = {style.textInput} placeholder="Data da Venda" 
+                value={datavenda}
+                onChangeText={setDatavenda}
             />    
         </View>
-        <View style ={style.boxDescricao}>
-            <TextInput style = {style.textInputDescricao} placeholder="Descrição" 
-                value={descricao}
-                onChangeText={setDescricao}
-            />    
+
+        <View style={{ padding: 20, borderWidth: 1, borderColor: '#ddd', borderRadius: 5 }}>
+            <Text>Status</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
+                <TouchableOpacity 
+                    style={{ flexDirection: 'row', alignItems: 'center' }}
+                    onPress={() => setStatus('Concluida')}
+                >
+                    <CheckBox 
+                        checked={status === 'Concluida'}
+                        onPress={() => setStatus('Concluida')}
+                        checkedIcon="dot-circle-o"
+                        uncheckedIcon="circle-o"
+                        containerStyle={{ padding: 0, margin: 0 }}
+                    />
+                    <Text>Concluída</Text>
+                </TouchableOpacity>
+
+        
+                <TouchableOpacity 
+                    style={{ flexDirection: 'row', alignItems: 'center' }}
+                    onPress={() => setStatus('Pendente')}
+                >
+                    <CheckBox 
+                        checked={status === 'Pendente'}
+                        onPress={() => setStatus('Pendente')}
+                        checkedIcon="dot-circle-o"
+                        uncheckedIcon="circle-o"
+                        containerStyle={{ padding: 0, margin: 0 }}
+                    />
+                <Text>Pendente</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                    style={{ flexDirection: 'row', alignItems: 'center' }}
+                    onPress={() => setStatus('Cancelada')}
+                >
+                   <CheckBox 
+                        checked={status === 'Cancelada'}
+                        onPress={() => setStatus('Cancelada')}
+                        checkedIcon="dot-circle-o"
+                        uncheckedIcon="circle-o"
+                        containerStyle={{ padding: 0, margin: 0 }}
+                    />
+                    <Text>Cancelada</Text>
+                </TouchableOpacity>
+            </View>
         </View>
+
         <View style = {style.button}>
             <TouchableOpacity onPress={() => getLogin()}>
                 {
